@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CR Furniture and Interior — Damak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1A17;
+    --paper:#F5F3EF;
+    --paper-2:#EDEAE2;
+    --oak:#8B5E34;
+    --oak-soft:#C99C6C;
+    --sage:#5F6B4F;
+    --line:#D8D3C7;
+    --white:#FFFFFF;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--oak);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,243,239,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600;
+  }
+  .brand .mark{
+    width:30px; height:30px; flex:0 0 auto;
+  }
+  .brand small{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.56rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--oak);
+    font-weight:500;
+  }
+  nav ul{
+    list-style:none; display:flex; gap:36px;
+  }
+  nav ul a{
+    font-size:0.88rem; font-weight:500; color:var(--ink);
+    position:relative; padding-bottom:4px;
+  }
+  nav ul a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--oak); transition:width .25s ease;
+  }
+  nav ul a:hover::after{width:100%;}
+  .nav-links{display:flex; align-items:center; gap:36px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px;
+    background:var(--ink); color:var(--paper);
+    font-size:0.84rem; font-weight:500;
+    border-radius:2px;
+    transition:background .2s ease, transform .2s ease;
+    border:1px solid var(--ink);
+    cursor:pointer;
+  }
+  .btn:hover{background:transparent; color:var(--ink);}
+  .btn-outline{
+    background:transparent; color:var(--ink); border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink); color:var(--paper);}
+  .menu-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 80px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--oak);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:22px; height:1px; background:var(--oak);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.9rem);
+    max-width:11.5ch;
+    margin-bottom:24px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--oak);
+  }
+  .hero p.lede{
+    font-size:1.08rem;
+    max-width:44ch;
+    color:#4A483F;
+    margin-bottom:36px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px;}
+  .hero-stats{
+    display:flex; gap:36px;
+    padding-top:28px; border-top:1px solid var(--line);
+  }
+  .hero-stats div span{
+    display:block; font-family:'Fraunces', serif; font-size:1.5rem; color:var(--ink);
+  }
+  .hero-stats div small{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:#6B6858;
+  }
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1.02;
+    background:linear-gradient(160deg, var(--paper-2), var(--paper));
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .hero-art svg{width:82%; height:82%;}
+  .blueprint-grid{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+    opacity:0.5;
+  }
+
+  .room-line{
+    fill:none; stroke:var(--ink); stroke-width:1.6;
+    stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:1400; stroke-dashoffset:1400;
+    animation:draw 2.6s ease forwards;
+  }
+  .room-fill{
+    opacity:0; transform-origin:center;
+    animation:fadein 1.2s ease forwards;
+    animation-delay:2.1s;
+  }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+  @keyframes fadein{ to{opacity:1;} }
+
+  @media (prefers-reduced-motion:reduce){
+    .room-line{animation:none; stroke-dashoffset:0;}
+    .room-fill{animation:none; opacity:1;}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:88px 0; border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; margin-bottom:56px; flex-wrap:wrap;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.4rem); max-width:16ch;}
+  .section-head p{max-width:38ch; color:#5A5848; font-size:0.98rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper); padding:40px 32px;
+    transition:background .25s ease;
+  }
+  .service-card:hover{background:var(--paper-2);}
+  .service-card .num{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--oak);
+    margin-bottom:26px; display:block;
+  }
+  .service-card h3{font-size:1.3rem; margin-bottom:12px;}
+  .service-card p{font-size:0.92rem; color:#5A5848; margin-bottom:20px;}
+  .service-card ul{list-style:none; font-size:0.85rem; color:#6B6858;}
+  .service-card ul li{padding:5px 0; border-top:1px solid var(--line);}
+  .service-card ul li:first-child{border-top:none;}
+
+  /* ---------- PROCESS ---------- */
+  .process-list{border-top:1px solid var(--line);}
+  .process-row{
+    display:grid; grid-template-columns:80px 1fr 1.4fr;
+    gap:32px; padding:30px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .process-row .num{
+    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--oak-soft);
+  }
+  .process-row h3{font-size:1.15rem; font-weight:500;}
+  .process-row p{color:#5A5848; font-size:0.92rem; max-width:52ch;}
+
+  /* ---------- CITIES ---------- */
+  .cities-wrap{
+    background:var(--ink); color:var(--paper);
+    padding:80px 0;
+  }
+  .cities-wrap .section-head p{color:#C9C6B9;}
+  .cities-wrap .eyebrow{color:var(--oak-soft);}
+  .route{
+    position:relative;
+    padding:50px 0 10px;
+  }
+  .route-line{
+    position:absolute; left:0; right:0; top:64px; height:1px;
+    background:#4A4840;
+  }
+  .route-stops{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    position:relative;
+  }
+  .stop{
+    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+    flex:1; min-width:120px;
+  }
+  .stop .dot{
+    width:11px; height:11px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--ink);
+    position:relative; z-index:2;
+  }
+  .stop.head .dot{background:var(--oak-soft); width:14px; height:14px;}
+  .stop .name{font-family:'Fraunces', serif; font-size:1.05rem;}
+  .stop .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.62rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:#9B9887;
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .p-card{
+    border:1px solid var(--line); overflow:hidden; position:relative;
+  }
+  .p-thumb{
+    aspect-ratio:4/3; position:relative;
+    display:flex; align-items:flex-end; padding:16px;
+  }
+  .p-thumb .soon{
+    font-family:'IBM Plex Mono', monospace; font-size:0.6rem;
+    letter-spacing:0.1em; text-transform:uppercase;
+    background:var(--paper); color:var(--ink);
+    padding:4px 9px; border-radius:2px;
+  }
+  .p-card .p-info{padding:18px 20px 22px;}
+  .p-card h3{font-size:1.02rem; font-weight:500; margin-bottom:4px;}
+  .p-card p{font-size:0.82rem; color:#6B6858;}
+
+  .tex-oak{background:linear-gradient(135deg,#B98A56,#8B5E34 55%,#6E4A28);}
+  .tex-linen{background:linear-gradient(135deg,#E7E2D6,#CFC8B5 60%,#B9AF97);}
+  .tex-sage{background:linear-gradient(135deg,#8B9877,#5F6B4F 60%,#454E37);}
+  .tex-stone{background:linear-gradient(135deg,#D8D3C7,#B6AF9E 55%,#948C77);}
+  .tex-walnut{background:linear-gradient(135deg,#6E4A32,#4A2F1E 60%,#33200F);}
+  .tex-clay{background:linear-gradient(135deg,#C99C6C,#A9713F 55%,#7C4F26);}
+
+  /* ---------- VALUES ---------- */
+  .values-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
+  }
+  .value-item .mono{font-size:0.68rem; color:var(--oak); display:block; margin-bottom:12px;}
+  .value-item h3{font-size:1.05rem; font-weight:500; margin-bottom:8px;}
+  .value-item p{font-size:0.86rem; color:#5A5848;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;
+  }
+  .contact-info h2{font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:20px; max-width:12ch;}
+  .contact-info p{color:#5A5848; margin-bottom:32px; max-width:40ch;}
+  .contact-methods{list-style:none; display:flex; flex-direction:column; gap:0;}
+  .contact-methods li{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 0; border-top:1px solid var(--line);
+  }
+  .contact-methods li:last-child{border-bottom:1px solid var(--line);}
+  .contact-methods .label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:#8A8874;
+  }
+  .contact-methods .val{font-size:1rem; font-weight:500;}
+  .contact-methods a.val:hover{color:var(--oak);}
+
+  form{display:flex; flex-direction:column; gap:20px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:#6B6858;
+  }
+  .field input, .field select, .field textarea{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:13px 14px;
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    color:var(--ink);
+    border-radius:2px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--oak); outline:none;
+  }
+  .field textarea{resize:vertical; min-height:100px;}
+  .submit-row{display:flex; align-items:center; gap:16px; margin-top:4px;}
+  .submit-note{font-size:0.78rem; color:#8A8874;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:48px 0 40px;}
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-bottom:32px; border-bottom:1px solid var(--line);
+    flex-wrap:wrap; gap:20px;
+  }
+  .footer-bottom{
+    padding-top:24px; display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:12px;
+    font-size:0.8rem; color:#8A8874;
+  }
+  .footer-cities{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.04em;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:48px;}
+    .hero-art{order:-1; max-width:420px; margin:0 auto;}
+    .services-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .values-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr; gap:48px;}
+    .process-row{grid-template-columns:50px 1fr; }
+    .process-row p{grid-column:2/3;}
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .values-grid{grid-template-columns:1fr;}
+    .hero-stats{flex-wrap:wrap; row-gap:20px;}
+    .route-stops{flex-direction:column;}
+    .route-line{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 30 30" fill="none">
+        <rect x="1" y="1" width="28" height="28" stroke="#1B1A17" stroke-width="1.2"/>
+        <path d="M8 22V12L15 7L22 12V22" stroke="#8B5E34" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M12 22V16H18V22" stroke="#1B1A17" stroke-width="1.2"/>
+      </svg>
+      <span>CR Furniture<br><small>&amp; Interior — Damak</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#areas">Service Areas</a></li>
+      <li><a href="#contact" class="btn">Enquire</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Furniture &amp; Interior Studio, Damak</div>
+        <h1>Rooms drawn<br>first, built <em>right</em><br>after.</h1>
+        <p class="lede">CR Furniture and Interior designs and builds custom furniture and complete interiors for homes across the eastern Terai — one studio, from first sketch to final handover.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn">Start your project</a>
+          <a href="#process" class="btn btn-outline">See how we work</a>
+        </div>
+        <div class="hero-stats">
+          <div><span>2026</span><small>Studio founded</small></div>
+          <div><span>5+</span><small>Cities served</small></div>
+          <div><span>1</span><small>Point of contact</small></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="blueprint-grid"></div>
+        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- room outline -->
+          <path class="room-line" d="M30 260 L30 60 L150 20 L270 60 L270 260 Z" />
+          <!-- sofa -->
+          <path class="room-line" d="M60 220 L60 190 Q60 178 74 178 L166 178 Q180 178 180 190 L180 220 M60 220 L60 235 M180 220 L180 235 M60 190 L60 165 Q60 155 72 155 M180 190 L180 165 Q180 155 168 155" />
+          <!-- side table + lamp -->
+          <path class="room-line" d="M210 235 L210 205 L240 205 L240 235 M225 205 L225 175 M212 175 L238 175 L232 160 L218 160 Z" />
+          <!-- window -->
+          <path class="room-line" d="M110 70 L190 70 L190 130 L110 130 Z M150 70 L150 130 M110 100 L190 100" />
+          <g class="room-fill">
+            <path d="M60 220 L60 190 Q60 178 74 178 L166 178 Q180 178 180 190 L180 220 Z" fill="#C99C6C" opacity="0.35"/>
+            <path d="M30 260 L30 60 L150 20 L270 60 L270 260 Z" fill="#8B5E34" opacity="0.05"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What we do</div>
+          <h2>Furniture and interiors, under one roof.</h2>
+        </div>
+        <p>No handing off between a carpenter, a designer, and a contractor. One studio carries the project from concept to the last cushion.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="num mono">01 / Furniture</span>
+          <h3>Custom Furniture</h3>
+          <p>Sofas, beds, wardrobes, dining sets, and modular storage, designed to your room's exact dimensions and made in-house.</p>
+          <ul>
+            <li>Solid wood &amp; engineered board</li>
+            <li>Upholstery &amp; finishing</li>
+            <li>Modular kitchens &amp; wardrobes</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="num mono">02 / Interiors</span>
+          <h3>Interior Design</h3>
+          <p>Space planning, material palettes, lighting, and 3D visualization so you see the room before a single wall is touched.</p>
+          <ul>
+            <li>Space planning &amp; layout</li>
+            <li>3D concept renders</li>
+            <li>Material &amp; colour selection</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="num mono">03 / Execution</span>
+          <h3>Turnkey Execution</h3>
+          <p>Civil work, electrical, false ceiling, carpentry, and finishing, managed on site so you deal with one studio, not five vendors.</p>
+          <ul>
+            <li>Site supervision</li>
+            <li>Vendor &amp; timeline management</li>
+            <li>Final styling &amp; handover</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How it works</div>
+          <h2>Five steps, one studio, no surprises.</h2>
+        </div>
+        <p>Every project — a single room or a full home — moves through the same sequence, so you always know what's next.</p>
+      </div>
+
+      <div class="process-list">
+        <div class="process-row">
+          <div class="num">01</div>
+          <h3>Consultation &amp; site visit</h3>
+          <p>We visit your site in Damak or nearby, take measurements, and understand how you actually use the space.</p>
+        </div>
+        <div class="process-row">
+          <div class="num">02</div>
+          <h3>Design &amp; 3D concept</h3>
+          <p>Layouts, material boards, and 3D renders, refined with you until the design feels right, before anything is built.</p>
+        </div>
+        <div class="process-row">
+          <div class="num">03</div>
+          <h3>Material selection &amp; quotation</h3>
+          <p>Clear, itemised quotation for materials, furniture, and labour — no vague lump sums.</p>
+        </div>
+        <div class="process-row">
+          <div class="num">04</div>
+          <h3>Fabrication &amp; execution</h3>
+          <p>Furniture is built in our workshop while on-site work proceeds in parallel, tracked against a fixed timeline.</p>
+        </div>
+        <div class="process-row">
+          <div class="num">05</div>
+          <h3>Handover &amp; styling</h3>
+          <p>Final walkthrough, styling touches, and a punch list closed out before we call the project done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="cities-wrap" id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Where we work</div>
+          <h2>Based in Damak, working across the east.</h2>
+        </div>
+        <p>Our studio and workshop are in Damak; we take on design and build projects across the wider eastern Terai.</p>
+      </div>
+
+      <div class="route">
+        <div class="route-line"></div>
+        <div class="route-stops">
+          <div class="stop head">
+            <div class="dot"></div>
+            <div class="name">Damak</div>
+            <div class="tag">Head Studio</div>
+          </div>
+          <div class="stop">
+            <div class="dot"></div>
+            <div class="name">Birtamod</div>
+            <div class="tag">Service Area</div>
+          </div>
+          <div class="stop">
+            <div class="dot"></div>
+            <div class="name">Itahari</div>
+            <div class="tag">Service Area</div>
+          </div>
+          <div class="stop">
+            <div class="dot"></div>
+            <div class="name">Dharan</div>
+            <div class="tag">Service Area</div>
+          </div>
+          <div class="stop">
+            <div class="dot"></div>
+            <div class="name">Biratnagar</div>
+            <div class="tag">Service Area</div>
+          </div>
+          <div class="stop">
+            <div class="dot"></div>
+            <div class="name">&amp; beyond</div>
+            <div class="tag">On request</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Early work</div>
+          <h2>Concepts currently in the studio.</h2>
+        </div>
+        <p>We're a new studio — these are project types we're actively taking on. Real project photography will replace these as work is completed.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="p-card">
+          <div class="p-thumb tex-oak"><span class="soon">In progress</span></div>
+          <div class="p-info">
+            <h3>Living Room — Concept</h3>
+            <p>Custom sofa set &amp; TV unit</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-thumb tex-linen"><span class="soon">In progress</span></div>
+          <div class="p-info">
+            <h3>Modular Kitchen — Concept</h3>
+            <p>L-shaped layout, laminate finish</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-thumb tex-sage"><span class="soon">Booking now</span></div>
+          <div class="p-info">
+            <h3>Bedroom Suite — Concept</h3>
+            <p>Wardrobe, bed &amp; study nook</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-thumb tex-walnut"><span class="soon">Booking now</span></div>
+          <div class="p-info">
+            <h3>Dining Set — Concept</h3>
+            <p>Solid wood, 6-seater</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-thumb tex-stone"><span class="soon">Booking now</span></div>
+          <div class="p-info">
+            <h3>Home Office — Concept</h3>
+            <p>Built-in desk &amp; storage</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-thumb tex-clay"><span class="soon">Booking now</span></div>
+          <div class="p-info">
+            <h3>Full Home Interior — Concept</h3>
+            <p>Turnkey, 3BHK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Why CR</div>
+          <h2>A small studio, on purpose.</h2>
+        </div>
+        <p>Being new means every project gets our full attention — not a fraction of it.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-item">
+          <span class="mono">Design</span>
+          <h3>Design before build</h3>
+          <p>You see 3D concepts and material boards before we cut a single board.</p>
+        </div>
+        <div class="value-item">
+          <span class="mono">Materials</span>
+          <h3>Honest sourcing</h3>
+          <p>We tell you exactly what wood, board, and finish is going into your furniture.</p>
+        </div>
+        <div class="value-item">
+          <span class="mono">Access</span>
+          <h3>Direct to the founder</h3>
+          <p>No call centre. You speak directly with the person managing your project.</p>
+        </div>
+        <div class="value-item">
+          <span class="mono">Pricing</span>
+          <h3>Itemised quotes</h3>
+          <p>Every quotation is broken down by material and labour, not a single guess of a number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Tell us about your space.</h2>
+          <p>Share a few details and we'll get back to you to arrange a site visit or a call — whichever works for you.</p>
+
+          <ul class="contact-methods">
+            <li>
+              <span class="label">Phone</span>
+              <a class="val" href="tel:+9779805068847">+977 980-5068847</a>
+            </li>
+            <li>
+              <span class="label">WhatsApp</span>
+              <a class="val" href="https://wa.me/9779805068847" target="_blank" rel="noopener">+977 980-5068847</a>
+            </li>
+            <li>
+              <span class="label">Email</span>
+              <a class="val" href="mailto:crfurnitureinterior18@gmail.com">crfurnitureinterior18@gmail.com</a>
+            </li>
+            <li>
+              <span class="label">Studio</span>
+              <span class="val">Damak, Nepal</span>
+            </li>
+          </ul>
+        </div>
+
+        <form action="mailto:crfurnitureinterior18@gmail.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <select id="city" name="city" required>
+              <option value="">Select your city</option>
+              <option>Damak</option>
+              <option>Birtamod</option>
+              <option>Itahari</option>
+              <option>Dharan</option>
+              <option>Biratnagar</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="project">Project type</label>
+            <select id="project" name="project">
+              <option>Custom furniture only</option>
+              <option>Interior design only</option>
+              <option>Full furniture + interior</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about your space</label>
+            <textarea id="message" name="message" placeholder="e.g. 3BHK apartment in Itahari, need full interior + kitchen"></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn">Send enquiry</button>
+            <span class="submit-note">Opens your email app — or just WhatsApp us directly.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="brand">
+        <svg class="mark" viewBox="0 0 30 30" fill="none">
+          <rect x="1" y="1" width="28" height="28" stroke="#1B1A17" stroke-width="1.2"/>
+          <path d="M8 22V12L15 7L22 12V22" stroke="#8B5E34" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M12 22V16H18V22" stroke="#1B1A17" stroke-width="1.2"/>
+        </svg>
+        <span>CR Furniture<br><small>&amp; Interior — Damak</small></span>
+      </a>
+      <a href="#contact" class="btn btn-outline">Start your project</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CR Furniture and Interior, Damak.</span>
+      <span class="footer-cities">DAMAK · BIRTAMOD · ITAHARI · DHARAN · BIRATNAGAR</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
