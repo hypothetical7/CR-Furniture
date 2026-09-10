@@ -83,6 +83,9 @@
     display:flex; align-items:center; justify-content:space-between;
     height:76px;
   }
+  .nav-right{
+    display:flex; align-items:center; gap:14px;
+  }
   .brand{
     display:flex; align-items:center; gap:10px;
     font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600;
@@ -112,6 +115,9 @@
   }
   nav ul a:not(.btn):hover::after{width:100%;}
   .nav-links{display:flex; align-items:center; gap:32px;}
+  .nav-links > li.main-links{
+    display:flex; gap:32px; list-style:none;
+  }
 
   .lang-toggle{
     display:flex; align-items:center; border:1px solid var(--ink);
@@ -623,8 +629,9 @@
       </svg>
       <span>CR Furniture<br><small data-i18n="brand.tag">&amp; Interior — Damak</small></span>
     </a>
+    <div class="nav-right">
     <ul class="nav-links">
-      <li class="main-links" style="display:flex; gap:32px; list-style:none;">
+      <li class="main-links">
         <a data-i18n="nav.services" href="#services">Services</a>
         <a data-i18n="nav.process" href="#process">Process</a>
         <a data-i18n="nav.portfolio" href="#portfolio">Portfolio</a>
@@ -646,6 +653,7 @@
       <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="#1B1A17" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#1B1A17" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
+    </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -869,42 +877,42 @@
 
       <div class="portfolio-grid">
         <div class="p-card">
-          <div class="p-thumb tex-oak"><img src="images/living-room.jpeg" alt="Living Room project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
+          <div class="p-thumb tex-oak"><img src="images/living-room.jpg" alt="Living Room project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p1.h">Living Room — Concept</h3>
             <p data-i18n="portfolio.p1.p">Custom sofa set &amp; TV unit</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-linen"><img src="images/modular-kitchen.jpeg" alt="Modular Kitchen project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
+          <div class="p-thumb tex-linen"><img src="images/modular-kitchen.jpg" alt="Modular Kitchen project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p2.h">Modular Kitchen — Concept</h3>
             <p data-i18n="portfolio.p2.p">L-shaped layout, laminate finish</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-sage"><img src="images/bedroom.jpeg" alt="Bedroom Suite project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-sage"><img src="images/bedroom.jpg" alt="Bedroom Suite project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p3.h">Bedroom Suite — Concept</h3>
             <p data-i18n="portfolio.p3.p">Wardrobe, bed &amp; study nook</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-walnut"><img src="images/dining-set.jpeg" alt="Dining Set project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-walnut"><img src="images/dining-set.jpg" alt="Dining Set project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p4.h">Dining Set — Concept</h3>
             <p data-i18n="portfolio.p4.p">Solid wood, 6-seater</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-stone"><img src="images/home-office.jpeg" alt="Home Office project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-stone"><img src="images/home-office.jpg" alt="Home Office project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p5.h">Home Office — Concept</h3>
             <p data-i18n="portfolio.p5.p">Built-in desk &amp; storage</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-clay"><img src="images/full-home.jpeg" alt="Full Home Interior project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-clay"><img src="images/full-home.jpg" alt="Full Home Interior project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p6.h">Full Home Interior — Concept</h3>
             <p data-i18n="portfolio.p6.p">Turnkey, 3BHK</p>
