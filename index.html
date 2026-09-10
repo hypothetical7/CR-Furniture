@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CR Furniture and Interior — Damak</title>
+
+<!-- PWA: installable app metadata -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B1A17">
+<link rel="icon" href="icons/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CR Furniture">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -520,6 +530,36 @@
     .fab-wa{animation:none;}
   }
 
+  /* ---------- IOS INSTALL OVERLAY ---------- */
+  .ios-install-overlay{
+    display:none;
+    position:fixed; inset:0; z-index:100;
+    background:rgba(27,26,23,0.55);
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .ios-install-overlay.open{display:flex;}
+  .ios-install-card{
+    background:var(--paper); width:100%; max-width:420px;
+    border-radius:14px 14px 0 0;
+    padding:28px 26px 34px;
+    position:relative;
+    animation:slideup .25s ease;
+  }
+  @media (min-width:480px){
+    .ios-install-overlay{align-items:center;}
+    .ios-install-card{border-radius:10px; margin-bottom:0;}
+  }
+  @keyframes slideup{ from{transform:translateY(30px); opacity:0;} to{transform:translateY(0); opacity:1;} }
+  .ios-install-card h3{font-size:1.15rem; margin-bottom:16px; padding-right:24px;}
+  .ios-install-card ol{padding-left:20px; display:flex; flex-direction:column; gap:10px;}
+  .ios-install-card li{font-size:0.92rem; color:#4A483F;}
+  .ios-install-close{
+    position:absolute; top:20px; right:22px;
+    background:none; border:none; font-size:1.6rem; line-height:1;
+    color:#8A8874;
+  }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
     .hero{padding:56px 0 56px;}
@@ -594,6 +634,12 @@
         <button type="button" id="langEnBtn" class="active">EN</button>
         <button type="button" id="langNpBtn">नेपाली</button>
       </li>
+      <li id="installBtnWrap" style="display:none;">
+        <button type="button" id="installBtn" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+          <span data-i18n="nav.install">Install App</span>
+        </button>
+      </li>
       <li><a data-i18n="nav.enquire" href="#contact" class="btn">Enquire</a></li>
     </ul>
     <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -615,10 +661,27 @@
           <button type="button" id="langNpBtnMobile">नेपाली</button>
         </div>
       </div>
+      <button type="button" id="installBtnMobile" class="btn btn-outline" style="display:none; margin-top:14px; width:100%; justify-content:center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+        <span data-i18n="nav.install">Install App</span>
+      </button>
       <a data-i18n="nav.enquire" href="#contact" class="btn">Enquire</a>
     </div>
   </div>
 </header>
+
+<!-- iOS "Add to Home Screen" instructions (Safari has no install prompt API) -->
+<div class="ios-install-overlay" id="iosInstallOverlay">
+  <div class="ios-install-card">
+    <button type="button" class="ios-install-close" id="iosInstallClose" aria-label="Close">&times;</button>
+    <h3 data-i18n="ios.title">Install this app</h3>
+    <ol>
+      <li data-i18n="ios.step1">Tap the Share icon in Safari's toolbar.</li>
+      <li data-i18n="ios.step2">Scroll down and tap "Add to Home Screen".</li>
+      <li data-i18n="ios.step3">Tap "Add" — the app icon will appear on your home screen.</li>
+    </ol>
+  </div>
+</div>
 
 <main id="top">
 
@@ -806,42 +869,42 @@
 
       <div class="portfolio-grid">
         <div class="p-card">
-          <div class="p-thumb tex-oak"><img src="images/living-room.jpeg" alt="Living Room project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
+          <div class="p-thumb tex-oak"><img src="images/living-room.jpg" alt="Living Room project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p1.h">Living Room — Concept</h3>
             <p data-i18n="portfolio.p1.p">Custom sofa set &amp; TV unit</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-linen"><img src="images/modular-kitchen.jpeg" alt="Modular Kitchen project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
+          <div class="p-thumb tex-linen"><img src="images/modular-kitchen.jpg" alt="Modular Kitchen project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.inprogress">In progress</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p2.h">Modular Kitchen — Concept</h3>
             <p data-i18n="portfolio.p2.p">L-shaped layout, laminate finish</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-sage"><img src="images/bedroom.jpeg" alt="Bedroom Suite project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-sage"><img src="images/bedroom-suite.jpg" alt="Bedroom Suite project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p3.h">Bedroom Suite — Concept</h3>
             <p data-i18n="portfolio.p3.p">Wardrobe, bed &amp; study nook</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-walnut"><img src="images/dining-set.jpeg" alt="Dining Set project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-walnut"><img src="images/dining-set.jpg" alt="Dining Set project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p4.h">Dining Set — Concept</h3>
             <p data-i18n="portfolio.p4.p">Solid wood, 6-seater</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-stone"><img src="images/home-office.jpeg" alt="Home Office project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-stone"><img src="images/home-office.jpg" alt="Home Office project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p5.h">Home Office — Concept</h3>
             <p data-i18n="portfolio.p5.p">Built-in desk &amp; storage</p>
           </div>
         </div>
         <div class="p-card">
-          <div class="p-thumb tex-clay"><img src="images/full-home.jpeg" alt="Full Home Interior project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
+          <div class="p-thumb tex-clay"><img src="images/full-home.jpg" alt="Full Home Interior project" loading="lazy" onerror="this.remove()"><span class="soon" data-i18n="portfolio.booking">Booking now</span></div>
           <div class="p-info">
             <h3 data-i18n="portfolio.p6.h">Full Home Interior — Concept</h3>
             <p data-i18n="portfolio.p6.p">Turnkey, 3BHK</p>
@@ -1174,7 +1237,13 @@ const translations = {
   "form.submit": {en:"Send via WhatsApp", np:"ह्वाट्सएपमार्फत पठाउनुहोस्"},
   "form.note": {en:"Opens WhatsApp with your details filled in.", np:"तपाईंको विवरणसहित ह्वाट्सएप खुल्छ।"},
 
-  "footer.copy": {en:"© 2026 CR Furniture and Interior, Damak.", np:"© २०२६ CR फर्निचर एण्ड इन्टेरियर, दमक।"}
+  "footer.copy": {en:"© 2026 CR Furniture and Interior, Damak.", np:"© २०२६ CR फर्निचर एण्ड इन्टेरियर, दमक।"},
+
+  "nav.install": {en:"Install App", np:"एप इन्स्टल गर्नुहोस्"},
+  "ios.title": {en:"Install this app", np:"यो एप इन्स्टल गर्नुहोस्"},
+  "ios.step1": {en:"Tap the Share icon in Safari's toolbar.", np:"Safari को टूलबारमा Share आइकनमा ट्याप गर्नुहोस्।"},
+  "ios.step2": {en:"Scroll down and tap \"Add to Home Screen\".", np:"तल स्क्रोल गरी \"Add to Home Screen\" मा ट्याप गर्नुहोस्।"},
+  "ios.step3": {en:"Tap \"Add\" — the app icon will appear on your home screen.", np:"\"Add\" थिच्नुहोस् — एप आइकन तपाईंको होम स्क्रिनमा देखिनेछ।"}
 };
 
 let currentLang = 'en';
@@ -1260,6 +1329,73 @@ document.getElementById('enquiryForm').addEventListener('submit', (e) => {
   }
   const text = lines.filter(Boolean).join('\n');
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+});
+
+// ---------- PWA: service worker registration ----------
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.warn('Service worker registration failed:', err);
+    });
+  });
+}
+
+// ---------- PWA: install prompt (Android / Chrome / Edge) ----------
+let deferredInstallPrompt = null;
+const installBtnWrap = document.getElementById('installBtnWrap');
+const installBtn = document.getElementById('installBtn');
+const installBtnMobile = document.getElementById('installBtnMobile');
+
+function isStandalone(){
+  return window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+}
+
+function isIOS(){
+  return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (!isStandalone()) {
+    installBtnWrap.style.display = 'flex';
+    installBtnMobile.style.display = 'flex';
+  }
+});
+
+async function triggerInstall(){
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    installBtnWrap.style.display = 'none';
+    installBtnMobile.style.display = 'none';
+  } else if (isIOS()) {
+    document.getElementById('iosInstallOverlay').classList.add('open');
+  }
+}
+
+installBtn.addEventListener('click', triggerInstall);
+installBtnMobile.addEventListener('click', () => { closeMobileMenu(); triggerInstall(); });
+
+window.addEventListener('appinstalled', () => {
+  installBtnWrap.style.display = 'none';
+  installBtnMobile.style.display = 'none';
+  deferredInstallPrompt = null;
+});
+
+// iOS has no beforeinstallprompt — show the Install button so users get instructions
+if (isIOS() && !isStandalone()) {
+  installBtnWrap.style.display = 'flex';
+  installBtnMobile.style.display = 'flex';
+}
+
+document.getElementById('iosInstallClose').addEventListener('click', () => {
+  document.getElementById('iosInstallOverlay').classList.remove('open');
+});
+document.getElementById('iosInstallOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'iosInstallOverlay') e.currentTarget.classList.remove('open');
 });
 </script>
 
