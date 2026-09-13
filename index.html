@@ -415,6 +415,157 @@
   .value-item h3{font-size:1.05rem; font-weight:500; margin-bottom:8px;}
   .value-item p{font-size:0.86rem; color:#5A5848;}
 
+  /* ---------- ESTIMATOR ---------- */
+  .estimator-section{background:var(--white);}
+  .est-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; box-shadow:0 18px 50px rgba(27,26,23,0.08);
+  }
+  .est-top{
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    background:var(--ink); color:var(--paper);
+    padding:16px 26px;
+  }
+  .est-top .mono{font-size:0.66rem; letter-spacing:0.08em; color:var(--oak-soft);}
+  .est-top .live{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono','Noto Sans Devanagari',monospace; font-size:0.66rem;
+    letter-spacing:0.06em; text-transform:uppercase;
+    background:#26241f; border:1px solid #3a372f; border-radius:100px; padding:7px 12px;
+  }
+  .est-top .live i{width:8px; height:8px; border-radius:50%; background:var(--wa-bright); flex:0 0 auto;}
+  .est-grid{display:grid; grid-template-columns:1.15fr 0.85fr;}
+  .est-controls{padding:clamp(22px,3vw,34px);}
+  .est-step{display:flex; align-items:center; gap:10px; margin:0 0 12px;}
+  .est-step:first-child{margin-top:0;}
+  .est-step + .est-projects, .est-step + .est-size-block, .est-step + .est-mats{margin-bottom:28px;}
+  .est-step-n{
+    width:26px; height:26px; border-radius:50%; flex:0 0 auto;
+    background:var(--ink); color:var(--paper);
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .est-step label{
+    font-family:'IBM Plex Mono','Noto Sans Devanagari',monospace; font-size:0.7rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); font-weight:500;
+  }
+  .est-projects{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .est-proj{
+    border:1px solid var(--line); background:var(--white); border-radius:10px;
+    padding:13px 12px; text-align:left;
+    display:flex; flex-direction:column; gap:4px;
+    transition:border-color .18s ease, box-shadow .18s ease, transform .15s ease;
+  }
+  .est-proj:hover{border-color:var(--ink); transform:translateY(-1px);}
+  .est-proj.active{border-color:var(--oak); border-width:2px; padding:12px 11px; background:#FFFDF6; box-shadow:0 6px 18px rgba(139,94,52,0.14);}
+  .est-proj .e{font-size:1.25rem; line-height:1;}
+  .est-proj .t{font-size:0.86rem; font-weight:600; line-height:1.25;}
+  .est-proj .u{font-size:0.72rem; color:#8A8874;}
+  .est-size-block{
+    background:var(--white); border:1px solid var(--line); border-radius:10px; padding:18px;
+  }
+  .est-size-row{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:12px;}
+  .est-size-row output{font-family:'Fraunces',serif; font-size:1.5rem;}
+  .est-size-row output small{font-family:'Inter','Noto Sans Devanagari',sans-serif; font-size:0.8rem; color:#6B6858; margin-left:6px;}
+  .est-hint{font-size:0.78rem; color:#8A8874;}
+  input[type="range"].est-range-input{width:100%; accent-color:var(--oak); height:28px;}
+  .est-scale{display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:0.64rem; color:#8A8874; margin-top:4px;}
+  .est-mats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .est-mat{
+    border:1px solid var(--line); background:var(--white); border-radius:10px;
+    padding:14px 13px; text-align:left; display:flex; flex-direction:column; gap:5px;
+    transition:border-color .18s ease, box-shadow .18s ease, transform .15s ease;
+  }
+  .est-mat:hover{border-color:var(--ink); transform:translateY(-1px);}
+  .est-mat.active{border-color:var(--oak); border-width:2px; padding:13px 12px; background:#FFFDF6; box-shadow:0 6px 18px rgba(139,94,52,0.14);}
+  .est-mat .t{font-size:0.88rem; font-weight:700;}
+  .est-mat .d{font-size:0.76rem; color:#5A5848; line-height:1.45;}
+  .est-mat .pr{font-family:'IBM Plex Mono',monospace; font-size:0.64rem; color:var(--oak); margin-top:2px;}
+  .est-result{
+    background:var(--ink); color:var(--paper);
+    padding:clamp(24px,3vw,34px);
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .est-result .k{font-family:'IBM Plex Mono','Noto Sans Devanagari',monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--oak-soft);}
+  .est-range-big{font-family:'Fraunces',serif; font-size:clamp(1.7rem,2.6vw,2.25rem); line-height:1.15;}
+  .est-range-big small{display:block; font-family:'Inter','Noto Sans Devanagari',sans-serif; font-size:0.82rem; color:#C9C6B9; margin-top:6px; font-weight:400;}
+  .est-lines{list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.88rem; color:#EDE8DB;}
+  .est-lines li{display:flex; gap:9px; align-items:flex-start;}
+  .est-lines li::before{content:'✓'; color:var(--wa-bright); font-weight:700; flex:0 0 auto;}
+  .est-meta{
+    display:flex; gap:10px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono','Noto Sans Devanagari',monospace; font-size:0.66rem;
+  }
+  .est-meta span{border:1px solid #3a372f; background:#26241f; border-radius:100px; padding:6px 11px; color:#EDE8DB;}
+  .est-wa{
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    background:var(--wa-bright); color:#052e16; border:1px solid var(--wa-bright);
+    padding:15px 20px; border-radius:8px; font-weight:700; font-size:0.92rem; width:100%;
+  }
+  .est-wa:hover{filter:brightness(0.94);}
+  .est-wa svg{width:17px; height:17px; flex:0 0 auto;}
+  .est-ghost{
+    display:flex; align-items:center; justify-content:center; gap:8px; width:100%;
+    background:transparent; color:#fff; border:1px solid #6d6a5e;
+    padding:12px 18px; border-radius:8px; font-size:0.86rem; font-weight:500;
+  }
+  .est-ghost:hover{background:#33302a;}
+  .est-disc{font-size:0.74rem; color:#9B9887; line-height:1.55;}
+  .est-foot{
+    display:flex; gap:10px; align-items:flex-start;
+    background:var(--paper-2); border-top:1px solid var(--line);
+    padding:14px 26px; font-size:0.8rem; color:#5A5848;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-section{background:var(--paper);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,26px);}
+  .t-card{
+    background:var(--white); border:1px solid var(--line); border-radius:12px;
+    padding:26px 24px; display:flex; flex-direction:column; gap:14px;
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .t-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(27,26,23,0.1);}
+  .t-stars{color:#B4702A; letter-spacing:3px; font-size:0.95rem;}
+  .t-quote{font-family:'Fraunces','Noto Sans Devanagari',serif; font-size:1.02rem; line-height:1.55;}
+  .t-sub{font-size:0.86rem; color:#5A5848;}
+  .t-foot{display:flex; gap:12px; align-items:center; margin-top:auto; padding-top:16px; border-top:1px solid var(--line);}
+  .t-avatar{
+    width:42px; height:42px; border-radius:50%; flex:0 0 auto;
+    background:var(--ink); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-size:0.95rem;
+  }
+  .t-who strong{display:block; font-size:0.9rem;}
+  .t-who span{font-size:0.76rem; color:#8A8874;}
+  .t-tag{
+    margin-left:auto; flex:0 0 auto;
+    font-family:'IBM Plex Mono','Noto Sans Devanagari',monospace; font-size:0.62rem;
+    letter-spacing:0.05em; text-transform:uppercase;
+    background:var(--paper); border:1px solid var(--line); border-radius:100px; padding:5px 10px; color:#5A5848;
+  }
+  .testi-cta{
+    margin-top:24px; display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    background:var(--white); border:1px dashed var(--oak-soft); border-radius:10px;
+    padding:18px 20px;
+  }
+  .testi-cta p{font-size:0.9rem; color:#5A5848; flex:1; min-width:220px;}
+  .testi-cta a{font-weight:700; font-size:0.88rem; color:var(--wa); white-space:nowrap;}
+  .testi-cta a:hover{text-decoration:underline;}
+  @media (max-width:900px){
+    .est-grid{grid-template-columns:1fr;}
+    .est-controls{padding:22px 20px;}
+    .est-result{padding:24px 20px;}
+    .testi-grid{grid-template-columns:1fr; max-width:640px;}
+  }
+  @media (max-width:560px){
+    .est-projects{grid-template-columns:repeat(2,1fr);}
+    .est-mats{grid-template-columns:1fr;}
+    .est-top{padding:14px 18px;}
+    .est-foot{padding:12px 18px;}
+    .t-card{padding:22px 20px;}
+  }
+
   /* ---------- FREE CONSULTATION BANNER ---------- */
   .consult-banner{
     background:var(--oak); color:#fff;
@@ -911,6 +1062,7 @@
     <ul class="nav-links">
       <li class="main-links">
         <a data-i18n="nav.services" href="#services">Services</a>
+        <a data-i18n="nav.estimator" href="#estimator">Estimate</a>
         <a data-i18n="nav.recent" href="#recent">Recent Work</a>
         <a data-i18n="nav.process" href="#process">Process</a>
         <a data-i18n="nav.portfolio" href="#portfolio">Portfolio</a>
@@ -937,7 +1089,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="wrap">
       <a data-i18n="nav.services" href="#services">Services</a>
+      <a data-i18n="nav.estimator" href="#estimator">Estimate</a>
       <a data-i18n="nav.recent" href="#recent">Recent Work</a>
+      <a data-i18n="nav.reviews" href="#reviews">Reviews</a>
       <a data-i18n="nav.process" href="#process">Process</a>
       <a data-i18n="nav.portfolio" href="#portfolio">Portfolio</a>
       <a data-i18n="nav.areas" href="#areas">Service Areas</a>
@@ -991,6 +1145,9 @@
             <span data-i18n="hero.cta1">Book free site visit</span>
           </a>
           <a href="#recent" class="btn btn-outline" data-i18n="hero.cta2">See recent work</a>
+        </div>
+        <div style="margin:-22px 0 34px;">
+          <a href="#estimator" style="font-size:0.9rem; font-weight:600; color:var(--oak); border-bottom:1px solid var(--oak-soft); padding-bottom:2px;" data-i18n="hero.cta3">Or get an instant estimate in 30 seconds →</a>
         </div>
         <div class="hero-stats">
           <div><span data-i18n="hero.stat1n">Free</span><small data-i18n="hero.stat1">Site visit in Damak area</small></div>
@@ -1070,6 +1227,74 @@
             <li data-i18n="services.c3.l3">Final styling &amp; handover</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATOR -->
+  <section class="section estimator-section" id="estimator">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" data-i18n="est.eyebrow">Instant estimate</div>
+          <h2 data-i18n="est.h2">What might your project cost?</h2>
+        </div>
+        <p data-i18n="est.desc">Pick a room and material — get an honest range in seconds. Final itemised quote follows the free site visit.</p>
+      </div>
+
+      <div class="est-card">
+        <div class="est-top">
+          <span class="mono" data-i18n="est.badge">CR Cost Estimator · Damak rates</span>
+          <span class="live"><i></i><span data-i18n="est.live">Live estimate</span></span>
+        </div>
+        <div class="est-grid">
+          <div class="est-controls">
+            <div class="est-step"><span class="est-step-n">1</span><label data-i18n="est.s1">Choose your project</label></div>
+            <div class="est-projects" role="radiogroup" aria-label="Project type">
+              <button type="button" class="est-proj active" data-project="kitchen"><span class="e">🍳</span><span class="t" data-i18n="est.p.kitchen">Modular Kitchen</span><span class="u" data-i18n="est.p.kitchen.u">per running ft</span></button>
+              <button type="button" class="est-proj" data-project="wardrobe"><span class="e">🚪</span><span class="t" data-i18n="est.p.wardrobe">Wardrobe</span><span class="u" data-i18n="est.p.wardrobe.u">per sq ft</span></button>
+              <button type="button" class="est-proj" data-project="bedroom"><span class="e">🛏️</span><span class="t" data-i18n="est.p.bedroom">Bedroom Set</span><span class="u" data-i18n="est.p.bedroom.u">per room</span></button>
+              <button type="button" class="est-proj" data-project="living"><span class="e">🛋️</span><span class="t" data-i18n="est.p.living">Living Room</span><span class="u" data-i18n="est.p.living.u">sofa + TV wall</span></button>
+              <button type="button" class="est-proj" data-project="dining"><span class="e">🍽️</span><span class="t" data-i18n="est.p.dining">Dining Set</span><span class="u" data-i18n="est.p.dining.u">table + chairs</span></button>
+              <button type="button" class="est-proj" data-project="fullhome"><span class="e">🏠</span><span class="t" data-i18n="est.p.fullhome">Full Home</span><span class="u" data-i18n="est.p.fullhome.u">per sq ft</span></button>
+            </div>
+
+            <div class="est-step"><span class="est-step-n">2</span><label data-i18n="est.s2">Set the size</label></div>
+            <div class="est-size-block">
+              <div class="est-size-row">
+                <output id="estSizeVal">10<small id="estSizeUnit">running ft</small></output>
+                <span class="est-hint" id="estSizeHint">L-shape ≈ 10–12 ft</span>
+              </div>
+              <input type="range" class="est-range-input" id="estSize" min="6" max="20" step="1" value="10" aria-label="Project size">
+              <div class="est-scale"><span id="estMin">6</span><span id="estMax">20</span></div>
+            </div>
+
+            <div class="est-step" style="margin-top:28px;"><span class="est-step-n">3</span><label data-i18n="est.s3">Pick material tier</label></div>
+            <div class="est-mats" role="radiogroup" aria-label="Material tier">
+              <button type="button" class="est-mat" data-material="economy"><span class="t" data-i18n="est.m.eco.t">Economy</span><span class="d" data-i18n="est.m.eco.d">Branded board + laminate, standard hardware</span><span class="pr" data-i18n="est.m.eco.pr">Smart &amp; sturdy</span></button>
+              <button type="button" class="est-mat active" data-material="premium"><span class="t" data-i18n="est.m.prem.t">Premium ★</span><span class="d" data-i18n="est.m.prem.d">PU finish + soft-close + quartz (kitchen)</span><span class="pr" data-i18n="est.m.prem.pr">Most popular</span></button>
+              <button type="button" class="est-mat" data-material="luxury"><span class="t" data-i18n="est.m.lux.t">Luxury</span><span class="d" data-i18n="est.m.lux.d">Solid wood accents + veneer + premium fittings</span><span class="pr" data-i18n="est.m.lux.pr">Showpiece finish</span></button>
+            </div>
+          </div>
+
+          <div class="est-result">
+            <span class="k" data-i18n="est.r.k">Your estimate range</span>
+            <div class="est-range-big"><span id="estRange">Rs 2,40,000 – 3,00,000</span><small id="estPer">Premium · 10 running ft · ≈ Rs 24,000–30,000 / ft</small></div>
+            <ul class="est-lines">
+              <li id="estLine1">Itemised quote in 48h after free site visit</li>
+              <li id="estLine2">Timeline: 3–4 weeks</li>
+              <li id="estLine3">Includes material + labour (Damak area)</li>
+            </ul>
+            <div class="est-meta"><span id="estProjTag">🍳 Kitchen</span><span id="estMatTag">Premium</span><span id="estTimeTag">3–4 wks</span></div>
+            <button type="button" class="est-wa" id="estWaBtn" data-wa-source="estimator">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg>
+              <span data-i18n="est.cta">Send this estimate on WhatsApp</span>
+            </button>
+            <a class="est-ghost" href="tel:+9779805068847" data-wa-source="estimator-call"><span data-i18n="est.call">Or call to discuss: +977 980-5068847</span></a>
+            <p class="est-disc" data-i18n="est.disc">Rough range from Damak-area rates. Exact itemised quote after measurement + 3D design — no obligation. Transport extra outside Damak.</p>
+          </div>
+        </div>
+        <div class="est-foot"><span>💡</span><span data-i18n="est.foot">Tip: send a photo + room size on WhatsApp and we’ll narrow this to an itemised price range within 48 hours.</span></div>
       </div>
     </div>
   </section>
@@ -1306,6 +1531,55 @@
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section class="section testi-section" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" data-i18n="rev.eyebrow">Client words</div>
+          <h2 data-i18n="rev.h2">Early feedback from nearby homes.</h2>
+        </div>
+        <p data-i18n="rev.desc">We’re a new studio — every early project carries our name. Shared with permission; final photos follow each handover.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote" data-i18n="rev.q1">“They measured on Saturday, showed a 3D view, and the wardrobe now fits wall-to-wall. No cutting corners on the inside finish.”</p>
+          <p class="t-sub" data-i18n="rev.q1s">Itemised quote matched the final bill — that built trust.</p>
+          <div class="t-foot">
+            <span class="t-avatar">SR</span>
+            <span class="t-who"><strong data-i18n="rev.n1">Sita R. — Damak</strong><span data-i18n="rev.w1">Wardrobe · shared after fitting</span></span>
+            <span class="t-tag" data-i18n="rev.tag1">Furniture</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote" data-i18n="rev.q2">“The kitchen quote listed every shutter and the quartz separately. Three weeks later we were cooking in it.”</p>
+          <p class="t-sub" data-i18n="rev.q2s">Tall pantry + chimney fitting included, no surprise extras.</p>
+          <div class="t-foot">
+            <span class="t-avatar">BL</span>
+            <span class="t-who"><strong data-i18n="rev.n2">Bibek L. — Birtamod</strong><span data-i18n="rev.w2">L-shape kitchen · handover soon</span></span>
+            <span class="t-tag" data-i18n="rev.tag2">Kitchen</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote" data-i18n="rev.q3">“Direct call with the founder, no middlemen. The solid-wood dining set feels like it will outlive us.”</p>
+          <p class="t-sub" data-i18n="rev.q3s">Matte PU finish, delivered in two weeks as promised.</p>
+          <div class="t-foot">
+            <span class="t-avatar">AP</span>
+            <span class="t-who"><strong data-i18n="rev.n3">Anisha &amp; Pradeep — Itahari</strong><span data-i18n="rev.w3">6-seater dining · delivered</span></span>
+            <span class="t-tag" data-i18n="rev.tag3">Furniture</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-cta">
+        <p data-i18n="rev.cta.p">Worked with us? Your words help a new local studio grow — tap to leave a line on WhatsApp and we’ll add it here.</p>
+        <a href="#" id="reviewWaBtn" data-wa-source="reviews" data-i18n="rev.cta.a">Leave a review on WhatsApp →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- VALUES -->
   <section class="section">
     <div class="wrap">
@@ -1429,7 +1703,7 @@
               </a>
             </li>
             <li>
-              <a href="https://wa.me/9779805068847" target="_blank" rel="noopener">
+              <a href="https://wa.me/9779805068847?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20a%20project." target="_blank" rel="noopener" data-wa-source="contact-card">
                 <span class="m-left">
                   <span class="icon">
                     <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg>
@@ -1535,7 +1809,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/9779805068847" target="_blank" rel="noopener" class="fab-wa" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/9779805068847?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20a%20project." target="_blank" rel="noopener" class="fab-wa" aria-label="Chat on WhatsApp" data-wa-source="fab">
   <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg>
 </a>
 
@@ -1554,7 +1828,7 @@
       </div>
       <div class="lb-row">
         <span class="lb-status" id="lbStatus"></span>
-        <a href="#" id="lbWa" class="lb-wa">
+        <a href="#" id="lbWa" class="lb-wa" data-wa-source="lightbox">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg>
           <span data-i18n="recent.ask">Ask about this project →</span>
         </a>
@@ -1584,6 +1858,8 @@ const translations = {
   "nav.process": {en:"Process", np:"प्रक्रिया"},
   "nav.portfolio": {en:"Portfolio", np:"पोर्टफोलियो"},
   "nav.areas": {en:"Service Areas", np:"सेवा क्षेत्रहरू"},
+  "nav.estimator": {en:"Estimate", np:"लागत"},
+  "nav.reviews": {en:"Reviews", np:"समीक्षा"},
   "nav.enquire": {en:"Enquire", np:"सोधपुछ गर्नुहोस्"},
 
   "hero.pill": {en:"Now booking — free site visit in Damak area", np:"अहिले बुकिङ खुला — दमक क्षेत्रमा निःशुल्क साइट भ्रमण"},
@@ -1595,6 +1871,7 @@ const translations = {
   "hero.t3": {en:"Itemised quote in 48 hours — no vague lump sums", np:"४८ घण्टामा विवरणसहितको कोटेसन — अस्पष्ट रकम छैन"},
   "hero.cta1": {en:"Book free site visit", np:"निःशुल्क साइट भ्रमण बुक गर्नुहोस्"},
   "hero.cta2": {en:"See recent work", np:"भर्खरका काम हेर्नुहोस्"},
+  "hero.cta3": {en:"Or get an instant estimate in 30 seconds →", np:"वा ३० सेकेन्डमा तुरुन्त लागत हेर्नुहोस् →"},
   "hero.stat1n": {en:"Free", np:"निःशुल्क"},
   "hero.stat1": {en:"Site visit in Damak area", np:"दमक क्षेत्रमा साइट भ्रमण"},
   "hero.stat2n": {en:"48h", np:"४८घ"},
@@ -1723,6 +2000,62 @@ const translations = {
   "consult.l2": {en:"Honest material options with itemised price range", np:"विवरणसहितको मूल्यसहित इमानदार मटेरियल विकल्प"},
   "consult.l3": {en:"Only 4 site visits a week — reply within a day", np:"हप्तामा ४ वटा मात्र साइट भ्रमण — एक दिनभित्र जवाफ"},
 
+  "est.eyebrow": {en:"Instant estimate", np:"तुरुन्त लागत"},
+  "est.h2": {en:"What might your project cost?", np:"तपाईंको प्रोजेक्टको लागत कति पर्ला?"},
+  "est.desc": {en:"Pick a room and material — get an honest range in seconds. Final itemised quote follows the free site visit.", np:"कोठा र मटेरियल छान्नुहोस् — सेकेन्डमै इमानदार मूल्य दायरा पाउनुहोस्। निःशुल्क साइट भ्रमणपछि अन्तिम विवरणसहितको कोटेसन पाउनुहुन्छ।"},
+  "est.badge": {en:"CR Cost Estimator · Damak rates", np:"CR लागत अनुमान · दमक दर"},
+  "est.live": {en:"Live estimate", np:"लाइभ अनुमान"},
+  "est.s1": {en:"Choose your project", np:"आफ्नो प्रोजेक्ट छान्नुहोस्"},
+  "est.s2": {en:"Set the size", np:"आकार तोक्नुहोस्"},
+  "est.s3": {en:"Pick material tier", np:"मटेरियल श्रेणी छान्नुहोस्"},
+  "est.p.kitchen": {en:"Modular Kitchen", np:"मोड्युलर भान्सा"},
+  "est.p.kitchen.u": {en:"per running ft", np:"प्रति रनिङ फिट"},
+  "est.p.wardrobe": {en:"Wardrobe", np:"वार्डरोब"},
+  "est.p.wardrobe.u": {en:"per sq ft", np:"प्रति वर्ग फिट"},
+  "est.p.bedroom": {en:"Bedroom Set", np:"बेडरूम सेट"},
+  "est.p.bedroom.u": {en:"per room", np:"प्रति कोठा"},
+  "est.p.living": {en:"Living Room", np:"लिभिङ रूम"},
+  "est.p.living.u": {en:"sofa + TV wall", np:"सोफा + टिभी वाल"},
+  "est.p.dining": {en:"Dining Set", np:"डाइनिङ सेट"},
+  "est.p.dining.u": {en:"table + chairs", np:"टेबल + कुर्सी"},
+  "est.p.fullhome": {en:"Full Home", np:"पूर्ण घर"},
+  "est.p.fullhome.u": {en:"per sq ft", np:"प्रति वर्ग फिट"},
+  "est.m.eco.t": {en:"Economy", np:"इकोनोमी"},
+  "est.m.eco.d": {en:"Branded board + laminate, standard hardware", np:"ब्रान्डेड बोर्ड + लेमिनेट, सामान्य हार्डवेयर"},
+  "est.m.eco.pr": {en:"Smart & sturdy", np:"किफायती र बलियो"},
+  "est.m.prem.t": {en:"Premium ★", np:"प्रिमियम ★"},
+  "est.m.prem.d": {en:"PU finish + soft-close + quartz (kitchen)", np:"PU फिनिस + सफ्ट-क्लोज + क्वार्ट्ज (भान्सा)"},
+  "est.m.prem.pr": {en:"Most popular", np:"सबैभन्दा लोकप्रिय"},
+  "est.m.lux.t": {en:"Luxury", np:"लक्जरी"},
+  "est.m.lux.d": {en:"Solid wood accents + veneer + premium fittings", np:"ठोस काठ + भेनियर + प्रिमियम फिटिङ"},
+  "est.m.lux.pr": {en:"Showpiece finish", np:"विशेष फिनिस"},
+  "est.r.k": {en:"Your estimate range", np:"तपाईंको अनुमानित दायरा"},
+  "est.cta": {en:"Send this estimate on WhatsApp", np:"यो अनुमान ह्वाट्सएपमा पठाउनुहोस्"},
+  "est.call": {en:"Or call to discuss: +977 980-5068847", np:"वा कल गर्नुहोस्: +977 980-5068847"},
+  "est.disc": {en:"Rough range from Damak-area rates. Exact itemised quote after measurement + 3D design — no obligation. Transport extra outside Damak.", np:"दमक क्षेत्रका दरअनुसार अनुमानित दायरा। नाप + 3D डिजाइनपछि ठ्याक्कै विवरणसहितको कोटेसन — कुनै बाध्यता छैन। दमक बाहिर ढुवानी थप।"},
+  "est.foot": {en:"Tip: send a photo + room size on WhatsApp and we’ll narrow this to an itemised price range within 48 hours.", np:"सुझाव: ह्वाट्सएपमा फोटो + कोठाको नाप पठाउनुहोस्, ४८ घण्टाभित्र विवरणसहितको मूल्य पाउनुहोस्।"},
+
+  "rev.eyebrow": {en:"Client words", np:"ग्राहकका शब्द"},
+  "rev.h2": {en:"Early feedback from nearby homes.", np:"नजिकका घरहरूबाट प्रारम्भिक प्रतिक्रिया।"},
+  "rev.desc": {en:"We’re a new studio — every early project carries our name. Shared with permission; final photos follow each handover.", np:"हामी नयाँ स्टुडियो हौं — हरेक सुरुवाती प्रोजेक्टमा हाम्रो नाम जोडिएको छ। अनुमतिसहित साझा; हस्तान्तरणपछि फाइनल फोटोहरू।"},
+  "rev.q1": {en:"“They measured on Saturday, showed a 3D view, and the wardrobe now fits wall-to-wall. No cutting corners on the inside finish.”", np:"“शनिबार नाप लिए, 3D देखाए, र वार्डरोब अहिले भित्तादेखि भित्तासम्म ठ्याक्कै फिट छ। भित्री फिनिसमा कुनै सम्झौता छैन।”"},
+  "rev.q1s": {en:"Itemised quote matched the final bill — that built trust.", np:"विवरणसहितको कोटेसन र फाइनल बिल मिल्यो — त्यसैले विश्वास बढ्यो।"},
+  "rev.n1": {en:"Sita R. — Damak", np:"सीता र. — दमक"},
+  "rev.w1": {en:"Wardrobe · shared after fitting", np:"वार्डरोब · फिटिङपछि साझा"},
+  "rev.tag1": {en:"Furniture", np:"फर्निचर"},
+  "rev.q2": {en:"“The kitchen quote listed every shutter and the quartz separately. Three weeks later we were cooking in it.”", np:"“भान्साको कोटेसनमा हरेक सटर र क्वार्ट्ज छुट्टाछुट्टै थियो। तीन हप्तापछि हामी त्यसैमा पकाउँदै थियौं।”"},
+  "rev.q2s": {en:"Tall pantry + chimney fitting included, no surprise extras.", np:"अग्लो प्यान्ट्री + चिम्नी फिटिङसहित, कुनै लुकेको खर्च छैन।"},
+  "rev.n2": {en:"Bibek L. — Birtamod", np:"विवेक ल. — बिर्तामोड"},
+  "rev.w2": {en:"L-shape kitchen · handover soon", np:"L-आकार भान्सा · हस्तान्तरण नजिक"},
+  "rev.tag2": {en:"Kitchen", np:"भान्सा"},
+  "rev.q3": {en:"“Direct call with the founder, no middlemen. The solid-wood dining set feels like it will outlive us.”", np:"“संस्थापकसँग सिधा कुरा, कुनै बिचौलिया छैन। ठोस काठको डाइनिङ सेट हामीभन्दा लामो समय टिक्ला जस्तो छ।”"},
+  "rev.q3s": {en:"Matte PU finish, delivered in two weeks as promised.", np:"म्याट PU फिनिस, भनेअनुसार दुई हप्तामा डेलिभरी।"},
+  "rev.n3": {en:"Anisha & Pradeep — Itahari", np:"अनिशा र प्रदीप — इटहरी"},
+  "rev.w3": {en:"6-seater dining · delivered", np:"६-सिटर डाइनिङ · डेलिभरी भयो"},
+  "rev.tag3": {en:"Furniture", np:"फर्निचर"},
+  "rev.cta.p": {en:"Worked with us? Your words help a new local studio grow — tap to leave a line on WhatsApp and we’ll add it here.", np:"हामीसँग काम गर्नुभयो? तपाईंका शब्दले नयाँ स्थानीय स्टुडियोलाई बढ्न मद्दत गर्छ — ह्वाट्सएपमा लेख्न ट्याप गर्नुहोस्।"},
+  "rev.cta.a": {en:"Leave a review on WhatsApp →", np:"ह्वाट्सएपमा समीक्षा छोड्नुहोस् →"},
+
   "sticky.call": {en:"Call now", np:"अहिले कल गर्नुहोस्"},
   "sticky.wa": {en:"Book free visit", np:"निःशुल्क भ्रमण बुक गर्नुहोस्"},
 
@@ -1778,10 +2111,18 @@ const translations = {
   "ios.step3": {en:"Tap \"Add\" — the app icon will appear on your home screen.", np:"\"Add\" थिच्नुहोस् — एप आइकन तपाईंको होम स्क्रिनमा देखिनेछ।"}
 };
 
+const LANG_KEY = 'cr-lang';
+const WA_STATS_KEY = 'cr-wa-clicks-v1';
 let currentLang = 'en';
+try {
+  const saved = localStorage.getItem(LANG_KEY);
+  if(saved === 'en' || saved === 'np') currentLang = saved;
+} catch(e) {}
 
-function applyLang(lang){
+function applyLang(lang, opts){
+  opts = opts || {};
   currentLang = lang;
+  try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
   document.getElementById('htmlRoot').setAttribute('lang', lang === 'np' ? 'ne' : 'en');
   document.getElementById('langEnBtn').classList.toggle('active', lang === 'en');
   document.getElementById('langNpBtn').classList.toggle('active', lang === 'np');
@@ -1800,12 +2141,51 @@ function applyLang(lang){
     const key = el.getAttribute('data-i18n-ph');
     if(translations[key]) el.setAttribute('placeholder', translations[key][lang]);
   });
+  if(!opts.skipEstimator && typeof renderEstimator === 'function') renderEstimator();
 }
 
 document.getElementById('langEnBtn').addEventListener('click', () => applyLang('en'));
 document.getElementById('langNpBtn').addEventListener('click', () => applyLang('np'));
 document.getElementById('langEnBtnMobile').addEventListener('click', () => applyLang('en'));
 document.getElementById('langNpBtnMobile').addEventListener('click', () => applyLang('np'));
+
+// ---------- WhatsApp click analytics (local-first, GA-ready) ----------
+function getWaStats(){
+  try { return JSON.parse(localStorage.getItem(WA_STATS_KEY)) || {total:0, bySource:{}}; }
+  catch(e){ return {total:0, bySource:{}}; }
+}
+function trackWaClick(source){
+  source = source || 'unknown';
+  let s = getWaStats();
+  s.total = (s.total || 0) + 1;
+  s.bySource = s.bySource || {};
+  s.bySource[source] = (s.bySource[source] || 0) + 1;
+  s.lastAt = new Date().toISOString();
+  s.lastSource = source;
+  try { localStorage.setItem(WA_STATS_KEY, JSON.stringify(s)); } catch(e) {}
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event:'wa_click', wa_source:source});
+  } catch(e) {}
+  if(window.console && console.info) console.info('[wa_click]', source, s);
+  return s;
+}
+window.CR_WA_STATS = getWaStats;
+window.CR_WA_TRACK = trackWaClick;
+// Delegated tracking for any wa.me link (present + future)
+document.addEventListener('click', (e) => {
+  const a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+  if(!a) return;
+  const src = a.getAttribute('data-wa-source') || a.id || 'wa-link';
+  trackWaClick(src);
+});
+// Expose stats with ?stats=1 for the owner (no backend needed)
+try {
+  if(new URLSearchParams(window.location.search).get('stats') === '1'){
+    console.table(getWaStats().bySource || {});
+    console.info('Total WA clicks:', getWaStats().total || 0);
+  }
+} catch(e) {}
 
 // Mobile hamburger menu
 const menuToggle = document.getElementById('menuToggle');
@@ -1826,6 +2206,7 @@ window.addEventListener('resize', () => { if(window.innerWidth > 900) closeMobil
 // Free consultation button -> WhatsApp with prefilled message
 document.getElementById('consultWaBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  trackWaClick('consult-banner');
   const msg = currentLang === 'np'
     ? "नमस्ते, म आफ्नो प्रोजेक्टको लागि निःशुल्क परामर्श बुक गर्न चाहन्छु।"
     : "Hi, I'd like to book a free consultation for my project.";
@@ -1835,11 +2216,26 @@ document.getElementById('consultWaBtn').addEventListener('click', (e) => {
 // Sticky mobile bar -> WhatsApp with prefilled message
 document.getElementById('stickyWaBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  trackWaClick('sticky-bar');
   const msg = currentLang === 'np'
     ? "नमस्ते, म आफ्नो प्रोजेक्टको लागि निःशुल्क साइट भ्रमण बुक गर्न चाहन्छु।"
     : "Hi, I'd like to book a free site visit for my project.";
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 });
+
+// Reviews CTA -> WhatsApp review intent
+(function(){
+  const b = document.getElementById('reviewWaBtn');
+  if(!b) return;
+  b.addEventListener('click', (e) => {
+    e.preventDefault();
+    trackWaClick('reviews');
+    const msg = currentLang === 'np'
+      ? "नमस्ते! म CR सँगको आफ्नो अनुभवबारे समीक्षा छोड्न चाहन्छु।"
+      : "Hi! I'd like to leave a review of my experience with CR.";
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+})();
 
 // ---------- Recent work: filters ----------
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1909,6 +2305,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // Enquiry form -> WhatsApp with structured message
 document.getElementById('enquiryForm').addEventListener('submit', (e) => {
   e.preventDefault();
+  trackWaClick('enquiry-form');
   const name = document.getElementById('name').value.trim();
   const city = document.getElementById('city').value;
   const project = document.getElementById('project').value;
@@ -1937,9 +2334,127 @@ document.getElementById('enquiryForm').addEventListener('submit', (e) => {
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 });
 
+// ---------- Cost estimator (room + material → WhatsApp) ----------
+const EST_CONFIG = {
+  kitchen:  {min:6, max:20, def:10, step:1, unitEn:'running ft', unitNp:'रनिङ फिट', hintEn:'L-shape ≈ 10–12 ft', hintNp:'L-आकार ≈ 10–12 फिट', timeEn:'3–4 weeks', timeNp:'३–४ हप्ता', emoji:'🍳', rates:{economy:[18000,22000], premium:[24000,30000], luxury:[32000,42000]}},
+  wardrobe: {min:20, max:120, def:40, step:5, unitEn:'sq ft', unitNp:'वर्ग फिट', hintEn:'2 shutters ≈ 35–45 sq ft', hintNp:'२ सटर ≈ ३५–४५ वर्ग फिट', timeEn:'2–3 weeks', timeNp:'२–३ हप्ता', emoji:'🚪', rates:{economy:[2600,3200], premium:[3300,4300], luxury:[4600,6000]}},
+  bedroom:  {min:1, max:4, def:1, step:1, unitEn:'room', unitNp:'कोठा', hintEn:'Bed + wardrobe + side tables / room', hintNp:'ओछ्यान + वार्डरोब + साइड टेबल / कोठा', timeEn:'3–4 weeks', timeNp:'३–४ हप्ता', emoji:'🛏️', rates:{economy:[185000,240000], premium:[260000,360000], luxury:[380000,550000]}},
+  living:   {min:5, max:9, def:7, step:1, unitEn:'seats', unitNp:'सिट', hintEn:'Sofa seats + TV wall included', hintNp:'सोफा सिट + टिभी वाल सहित', timeEn:'2–3 weeks', timeNp:'२–३ हप्ता', emoji:'🛋️', rates:{economy:{seat:[26000,32000], tv:[55000,75000]}, premium:{seat:[32000,40000], tv:[80000,110000]}, luxury:{seat:[42000,58000], tv:[110000,160000]}}},
+  dining:   {min:4, max:8, def:6, step:1, unitEn:'seats', unitNp:'सिट', hintEn:'Table + chairs, solid wood options', hintNp:'टेबल + कुर्सी, ठोस काठ विकल्प', timeEn:'2–3 weeks', timeNp:'२–३ हप्ता', emoji:'🍽️', rates:{economy:{table:[45000,55000], chair:[9000,11000]}, premium:{table:[60000,75000], chair:[12000,15000]}, luxury:{table:[85000,105000], chair:[16000,20000]}}},
+  fullhome: {min:500, max:2000, def:1000, step:50, unitEn:'sq ft', unitNp:'वर्ग फिट', hintEn:'Built-up area of your home', hintNp:'घरको बिल्ट-अप क्षेत्र', timeEn:'6–10 weeks', timeNp:'६–१० हप्ता', emoji:'🏠', rates:{economy:[1400,1800], premium:[1900,2500], luxury:[2600,3500]}}
+};
+let estProject = 'kitchen';
+let estMaterial = 'premium';
+
+function fmtNPR(n){ try { return 'Rs ' + Math.round(n).toLocaleString('en-IN'); } catch(e){ return 'Rs ' + Math.round(n); } }
+function estT(key){ return (translations[key] && translations[key][currentLang]) || key; }
+
+function calcEst(project, size, mat){
+  const cfg = EST_CONFIG[project];
+  if(project === 'living'){
+    const r = cfg.rates[mat];
+    return {low: size * r.seat[0] + r.tv[0], high: size * r.seat[1] + r.tv[1], perLow: r.seat[0], perHigh: r.seat[1]};
+  }
+  if(project === 'dining'){
+    const r = cfg.rates[mat];
+    return {low: r.table[0] + size * r.chair[0], high: r.table[1] + size * r.chair[1], perLow: r.chair[0], perHigh: r.chair[1]};
+  }
+  const r = cfg.rates[mat];
+  return {low: size * r[0], high: size * r[1], perLow: r[0], perHigh: r[1]};
+}
+
+function renderEstimator(){
+  const cfg = EST_CONFIG[estProject];
+  if(!cfg) return;
+  const slider = document.getElementById('estSize');
+  if(!slider) return;
+  // keep size in range when project changes
+  let size = parseInt(slider.value, 10);
+  if(slider.getAttribute('data-proj') !== estProject){
+    size = cfg.def;
+    slider.min = cfg.min; slider.max = cfg.max; slider.step = cfg.step; slider.value = size;
+    slider.setAttribute('data-proj', estProject);
+  }
+  size = parseInt(slider.value, 10);
+  const unit = currentLang === 'np' ? cfg.unitNp : cfg.unitEn;
+  const hint = currentLang === 'np' ? cfg.hintNp : cfg.hintEn;
+  const time = currentLang === 'np' ? cfg.timeNp : cfg.timeEn;
+  document.getElementById('estSizeVal').innerHTML = size + '<small>' + unit + '</small>';
+  document.getElementById('estSizeHint').textContent = hint;
+  document.getElementById('estMin').textContent = cfg.min;
+  document.getElementById('estMax').textContent = cfg.max;
+
+  const res = calcEst(estProject, size, estMaterial);
+  document.getElementById('estRange').textContent = fmtNPR(res.low) + ' – ' + fmtNPR(res.high);
+
+  const matLabel = estMaterial === 'economy' ? estT('est.m.eco.t') : estMaterial === 'premium' ? estT('est.m.prem.t').replace(' ★','').replace('★','').trim() + (currentLang==='np'?'':' (Popular)') : estT('est.m.lux.t');
+  const projKey = {kitchen:'est.p.kitchen', wardrobe:'est.p.wardrobe', bedroom:'est.p.bedroom', living:'est.p.living', dining:'est.p.dining', fullhome:'est.p.fullhome'}[estProject];
+  const projLabel = estT(projKey);
+  const perTxt = (estProject === 'kitchen' || estProject === 'wardrobe' || estProject === 'fullhome')
+    ? (currentLang === 'np' ? `${matLabel} · ${size} ${unit} · ≈ ${fmtNPR(res.perLow)}–${fmtNPR(res.perHigh)} / ${unit}` : `${matLabel} · ${size} ${unit} · ≈ ${fmtNPR(res.perLow)}–${fmtNPR(res.perHigh)} / unit`)
+    : (currentLang === 'np' ? `${matLabel} · ${projLabel} · ${size} ${unit}` : `${matLabel} · ${projLabel} · ${size} ${unit}`);
+  document.getElementById('estPer').textContent = perTxt;
+
+  document.getElementById('estLine1').textContent = currentLang === 'np'
+    ? 'निःशुल्क साइट भ्रमणपछि ४८ घण्टामा विवरणसहितको कोटेसन'
+    : 'Itemised quote in 48h after free site visit';
+  document.getElementById('estLine2').textContent = (currentLang === 'np' ? 'समय: ' : 'Timeline: ') + time;
+  document.getElementById('estLine3').textContent = currentLang === 'np'
+    ? 'मटेरियल + ज्याला सहित (दमक क्षेत्र)'
+    : 'Includes material + labour (Damak area)';
+  document.getElementById('estProjTag').textContent = cfg.emoji + ' ' + projLabel;
+  document.getElementById('estMatTag').textContent = estMaterial === 'premium' ? (currentLang==='np' ? 'प्रिमियम ★' : 'Premium ★') : matLabel;
+  document.getElementById('estTimeTag').textContent = time;
+}
+
+(function initEstimator(){
+  const slider = document.getElementById('estSize');
+  if(!slider) return;
+  slider.setAttribute('data-proj', estProject);
+  document.querySelectorAll('.est-proj').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.est-proj').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      estProject = btn.getAttribute('data-project');
+      renderEstimator();
+    });
+  });
+  document.querySelectorAll('.est-mat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.est-mat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      estMaterial = btn.getAttribute('data-material');
+      renderEstimator();
+    });
+  });
+  slider.addEventListener('input', renderEstimator);
+  document.getElementById('estWaBtn').addEventListener('click', () => {
+    trackWaClick('estimator');
+    const cfg = EST_CONFIG[estProject];
+    const size = parseInt(slider.value, 10);
+    const res = calcEst(estProject, size, estMaterial);
+    const range = fmtNPR(res.low) + ' – ' + fmtNPR(res.high);
+    const unit = currentLang === 'np' ? cfg.unitNp : cfg.unitEn;
+    const time = currentLang === 'np' ? cfg.timeNp : cfg.timeEn;
+    const projKey = {kitchen:'est.p.kitchen', wardrobe:'est.p.wardrobe', bedroom:'est.p.bedroom', living:'est.p.living', dining:'est.p.dining', fullhome:'est.p.fullhome'}[estProject];
+    const matKey = estMaterial === 'economy' ? 'est.m.eco.t' : estMaterial === 'premium' ? 'est.m.prem.t' : 'est.m.lux.t';
+    let text;
+    if(currentLang === 'np'){
+      text = `*इस्टिमेट — CR फर्निचर एण्ड इन्टेरियर*\nप्रोजेक्ट: ${estT(projKey)}\nआकार: ${size} ${unit}\nमटेरियल: ${estT(matKey)}\nअनुमान: ${range}\nसमय: ${time}\n\nयो अनुमानमा विस्तृत कोटेसन चाहन्छु।`;
+    } else {
+      text = `*Estimate — CR Furniture and Interior*\nProject: ${estT(projKey)}\nSize: ${size} ${unit}\nMaterial: ${estT(matKey)}\nEstimate: ${range}\nTimeline: ${time}\n\nI'd like an itemised quote on this estimate.`;
+    }
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+  });
+  renderEstimator();
+})();
+
+// Apply remembered language on first load (defaults to EN)
+try { applyLang(currentLang, {skipEstimator:true}); if(typeof renderEstimator === 'function') renderEstimator(); } catch(e) {}
+
 // ---------- Reveal on scroll ----------
 (function(){
-  const els = document.querySelectorAll('.section-head, .service-card, .process-row, .p-card, .r-card, .value-item, .hero-photo, .recent-note, .faq-list details');
+  const els = document.querySelectorAll('.section-head, .service-card, .process-row, .p-card, .r-card, .value-item, .hero-photo, .recent-note, .faq-list details, .est-card, .t-card, .testi-cta');
   els.forEach(el => el.classList.add('reveal'));
   if(!('IntersectionObserver' in window)){
     els.forEach(el => el.classList.add('visible'));
