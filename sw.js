@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 const CACHE_NAME = "cr-furniture-v5";
+=======
+const CACHE_NAME = "cr-furniture-v1";
+>>>>>>> d2ac507f742c3681a5d1e3df7f06ce2484b7ebd3
 
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
+<<<<<<< HEAD
   "./CR-Furniture-Logos/favicon-32.png",
   "./CR-Furniture-Logos/favicon-192.png",
   "./CR-Furniture-Logos/favicon-512.png",
@@ -15,6 +20,18 @@ const CORE_ASSETS = [
   "./images/dining-set.jpeg",
   "./images/home-office.jpeg",
   "./images/full-home.jpeg"
+=======
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-512-maskable.png",
+  "./icons/apple-touch-icon.png",
+  "./images/living-room.jpg",
+  "./images/modular-kitchen.jpg",
+  "./images/bedroom-suite.jpg",
+  "./images/dining-set.jpg",
+  "./images/home-office.jpg",
+  "./images/full-home.jpg"
+>>>>>>> d2ac507f742c3681a5d1e3df7f06ce2484b7ebd3
 ];
 
 // Install: pre-cache the core site so it works offline right after first visit

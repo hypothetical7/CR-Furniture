@@ -11,19 +11,31 @@
   "lang": "en",
   "icons": [
     {
+<<<<<<< HEAD
       "src": "CR-Furniture-Logos/favicon-192.png",
+=======
+      "src": "icons/icon-192.png",
+>>>>>>> d2ac507f742c3681a5d1e3df7f06ce2484b7ebd3
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
+<<<<<<< HEAD
       "src": "CR-Furniture-Logos/favicon-512.png",
+=======
+      "src": "icons/icon-512.png",
+>>>>>>> d2ac507f742c3681a5d1e3df7f06ce2484b7ebd3
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
+<<<<<<< HEAD
       "src": "CR-Furniture-Logos/cr-logo-profile-photo-512.png",
+=======
+      "src": "icons/icon-512-maskable.png",
+>>>>>>> d2ac507f742c3681a5d1e3df7f06ce2484b7ebd3
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
